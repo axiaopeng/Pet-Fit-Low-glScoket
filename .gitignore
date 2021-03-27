@@ -5,6 +5,11 @@ logs
 .log/
 private/
 run/
+typings/
+appveyor.yml
+.github/
+.eslintrc/
+.eslintignore/
 .vscode/
 npm-debug.*
 app/public/dist/
