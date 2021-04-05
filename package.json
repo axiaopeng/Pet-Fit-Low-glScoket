@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^6.0.0",
-    "egg-socket.io": "^4.1.6"
+    "egg-socket.io": "^4.1.6",
+    "mysql2": "^2.2.5"
   },
   "devDependencies": {
     "autod": "^3.0.1",

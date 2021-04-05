@@ -53,6 +53,7 @@ module.exports = appInfo => {
       username:'root',
       password:'123456',
       database: 'mygame',
+      logging: false ,         //控制sql日志
     };
    
     config.bodyParser = {
