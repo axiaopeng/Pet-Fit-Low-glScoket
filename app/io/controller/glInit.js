@@ -33,7 +33,8 @@ class DefaultController extends Controller {
       let others = await socket.myself.others();
       if(others&&others.length){
         for(let i = 0; i< others.length;i++){
-          await app.io.of("/glSocket").sockets[others[i].socketid].emit('behavior', socket.myself)
+          //只向真正在线的指定用户发送信息
+          app.io.of("/glSocket").sockets[others[i].socketid]&&(await app.io.of("/glSocket").sockets[others[i].socketid].emit('behavior', socket.myself))
         }
       }
     }catch(err){
@@ -55,10 +56,11 @@ class DefaultController extends Controller {
       let others = await socket.myself.others();
       if(others&&others.length){
         for(let i = 0; i< others.length;i++){
-          await app.io.of("/glSocket").sockets[others[i].socketid].emit('dialogBoxMessage',{
+           //只向真正在线的指定用户发送信息
+          app.io.of("/glSocket").sockets[others[i].socketid]&&(await app.io.of("/glSocket").sockets[others[i].socketid].emit('dialogBoxMessage',{
             roleid: socket.roleid,
             message: query.message
-          })
+          }))
         }
       }
     }catch(err){
@@ -78,9 +80,10 @@ class DefaultController extends Controller {
         let others = await socket.myself.others();
         if(others&&others.length){
           for(let i = 0; i< others.length;i++){
-            await app.io.of("/glSocket").sockets[others[i].socketid].emit('otherQuit',{
+            //只向真正在线的指定用户发送信息
+            app.io.of("/glSocket").sockets[others[i].socketid]&&(await app.io.of("/glSocket").sockets[others[i].socketid].emit('otherQuit',{
               roleid: socket.roleid,
-            })
+            }))
           }
         }
     }catch(err){
