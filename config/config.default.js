@@ -40,7 +40,8 @@ module.exports = appInfo => {
     listen: {
       path: '',
       port: 7001,
-      hostname: '0.0.0.0',
+      // hostname: '127.0.0.1',       //本地环境
+      hostname: '0.0.0.0',         //生产环境
     }
   }
   config.security = {
@@ -58,7 +59,8 @@ module.exports = appInfo => {
       host: '127.0.0.1',
       port: 3306,
       username:'root',
-      password:'cf51d21017bd0951',
+      // password:'123456',    //本地环境
+      password:'cf51d21017bd0951', //生产环境
       database: 'mygame',
       logging: false ,         //控制sql日志
     };
