@@ -37,7 +37,7 @@ module.exports = app => {
           [Op.not]: this.socketid
         },  
       },
-      attributes: ['id','role_name','position_x','position_y','socketid'],
+      attributes: ['id','role_name','position_x','position_y','socketid','role_type'],
       include:[{
         model: app.model.User,
         attributes: ['id','account','roleid'],
